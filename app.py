@@ -18,6 +18,8 @@ def finalizar_app():
   print('Finalizando app\n')
 
 def voltar_menu():
+  #You will come back to the main just if you press Enter.
+  #Você voltará ao menu apenas se apertar a tecla Enter.
   while True:
     voltar_menu = input('\nAperte ENTER para voltar ao menu principal ')
     
@@ -26,6 +28,8 @@ def voltar_menu():
   main() 
 
 def opcao_invalida():
+  #You will come back to the main just if you press Enter.
+  #Você voltará ao menu apenas se apertar a tecla Enter.
   while True:
     os.system('cls')
     print('Opção inválida\n')
@@ -39,21 +43,18 @@ def cadastrar_restaurante():
   print('Cadastro dos restaurantes\n')
   nome_restaurante = input('Nome do restaurante: ')
   
+  #If on the input don't have the word "restaurante", the output will return "the restaurant <name>" automatically.
+  #Se no input não tiver a palavra "restaurante", no output retornará como "o restaurante <nome>" automaticamente.
   if nome_restaurante.lower().startswith('restaurante'):
     restaurantes.append(nome_restaurante)
     nome = nome_restaurante.split(' ', 1)[1]
-    print(f'O "Restaurante {nome}" foi cadastrado!\n')
+    print(f'O restaurante "{nome}" foi cadastrado!\n')
   else: 
     nome_simples = 'Restaurante ' + nome_restaurante
     restaurantes.append(nome_simples)
     print(f'O "{nome_simples}" foi cadastrado!\n')
 
-  while True:
-    voltar_menu = input('Aperte ENTER para voltar ao menu principal ')
-    
-    if voltar_menu == '':
-      break
-  main()
+  voltar_menu()
   
 def listar_restaurante():
   os.system('cls')
